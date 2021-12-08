@@ -1,9 +1,81 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>addReserva</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border ion-text-center">
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>Realizar Reserva</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+    <form action="">
+        <ion-img src="/assets/c-booking-text-dark.png" slot="center"></ion-img>
+        <ion-list lines="none">
+            <ion-item>
+                <ion-icon slot="start" name="walk-outline"></ion-icon>
+                <ion-label>Instalación</ion-label>
+                <ion-select>
+                    <ion-select-option value="futbol7">Fútbol 7</ion-select-option>
+                    <ion-select-option value="futsal">Futsal</ion-select-option>
+                    <ion-select-option value="padel">Pádel</ion-select-option>
+                    <ion-select-option value="tenis">Tenis</ion-select-option>
+                    <ion-select-option value="basket">Basket</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item style="padding-top: 2px;">
+                <ion-icon slot="start" name="calendar-outline"></ion-icon>
+                <ion-label>Fecha</ion-label>
+                <ion-datetime displayFormat="DD/MMMM/YYYY"></ion-datetime>
+            </ion-item>
+
+            <ion-item style="padding-top: 2px;">
+                <ion-icon slot="start" name="time-outline"></ion-icon>
+                <ion-label>Hora</ion-label>
+                <ion-datetime displayFormat="H:mm"></ion-datetime>
+            </ion-item>
+
+            <ion-item style="padding-top: 2px;">
+                <ion-icon slot="start" name="pin-outline"></ion-icon>
+                <ion-label>Localidad</ion-label>
+                <ion-select>
+                    <ion-select-option value="castellar">Castellar</ion-select-option>
+                    <ion-select-option value="santisteban">Santisteban del Puerto</ion-select-option>
+                    <ion-select-option value="navas">Navas de San Juan</ion-select-option>
+                    <ion-select-option value="arquillos">Arquillos</ion-select-option>
+                    <ion-select-option value="vilches">Vilches</ion-select-option>
+                    <ion-select-option value="sorihuela">Sorihuela</ion-select-option>
+                    <ion-select-option value="montizon">Montizón</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item style="padding-top: 2px;">
+                <ion-icon slot="start" name="cash-outline"></ion-icon>
+                <ion-label>Precio</ion-label>
+                <ion-label class="ion-text-end">12€</ion-label>
+            </ion-item>
+
+            <ion-item class="ion-text-center">
+                <ion-label style="font-size: small; padding-top: 5px;">Los pagos se realizarán al personal. Gracias.</ion-label>
+            </ion-item>
+        </ion-list>
+    </form>
 
 </ion-content>
+
+<ion-footer class="ion-text-center">
+    <ion-toolbar>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button type="submit" expand="block" fill="clear" shape="round" color="dark">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button type="reset" expand="block" fill="clear" shape="round" color="dark" routerLink="/tabs/home-reservas">
+                    <ion-icon name="close-outline"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>
