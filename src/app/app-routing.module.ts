@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'add-reserva',
     loadChildren: () => import('./pages/add-reserva/add-reserva.module').then( m => m.AddReservaPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
 ];
 
 @NgModule({

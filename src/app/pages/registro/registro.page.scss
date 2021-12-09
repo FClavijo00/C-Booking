@@ -1,15 +1,6 @@
-ion-icon {
-    font-size: 40px;
-}
-
 ion-avatar {
-    height: 125px;
-    width: 125px;
-    border: 1px solid #222428;
-}
-
-ion-icon.socials {
-    font-size: 25px;
+    height: 150px;
+    width: 150px;
 }
 
 div {
@@ -18,4 +9,8 @@ div {
     align-self: center;
     align-items: center;
     align-content: center;
+}
+
+ion-item {
+    margin-top: 15px;
 }
