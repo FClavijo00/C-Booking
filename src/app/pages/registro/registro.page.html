@@ -11,24 +11,22 @@
     <form>
         <ion-card style="border-radius: 25px; box-shadow: 2px 2px 10px #666;">
             <ion-list lines="none">
-                <div>
-                    <ion-item>
-                        <ion-avatar>
-                            <img src="/assets/fjcb.jpeg" />
-                        </ion-avatar>
-                    </ion-item>
-                </div>
+
+                <ion-item>
+                    <img src="/assets/c-booking-text-dark.png" />
+                </ion-item>
+
                 <ion-item>
                     <ion-icon slot="start" name="person" color="dark"></ion-icon>
                     <ion-input type="text" placeholder="Nombre Completo" color="dark"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="mail" color="dark"></ion-icon>
-                    <ion-input type="email" placeholder="Email" color="dark"></ion-input>
+                    <ion-input type="email" placeholder="Email" color="dark" #email required></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="lock-closed" color="dark"></ion-icon>
-                    <ion-input type="password" placeholder="Contraseña" color="dark"></ion-input>
+                    <ion-input type="password" placeholder="Contraseña" color="dark" #password required></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="call" color="dark"></ion-icon>
@@ -47,7 +45,7 @@
     <ion-toolbar color="dark">
         <ion-row>
             <ion-col size="6">
-                <ion-button type="submit" expand="block" fill="clear" shape="round" color="light">
+                <ion-button (click)="signUp(email,password)" type="submit" expand="block" fill="clear" shape="round" color="light">
                     <ion-icon name="checkmark-outline"></ion-icon>
                     Registrar
                 </ion-button>

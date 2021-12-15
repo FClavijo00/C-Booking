@@ -3,14 +3,10 @@ ion-avatar {
     width: 150px;
 }
 
-div {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
-    align-content: center;
+ion-item {
+    margin-bottom: 15px;
 }
 
-ion-item {
-    margin-top: 15px;
+img {
+    margin-top: 20px;
 }

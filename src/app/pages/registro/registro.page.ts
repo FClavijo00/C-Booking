@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroPage implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
+  }
+
+  signUp(email, password) {
+    this.authService.registerUser(email.value, password.value)
+    .then((res) => {
+      this.router.navigate(['login']);
+    }).catch((error) => {
+      window.alert(error.message);
+    });
   }
 
 }

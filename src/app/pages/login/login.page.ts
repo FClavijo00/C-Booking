@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
+  }
+
+  login(email, password) {
+    this.authService.loginUser(email.value, password.value)
+    .then((res) => {
+      this.router.navigate(['tabs']);
+      console.log('Login Completado con éxito' + ' ' + email.value + ' ' + password.value);
+    }).catch((error) => {
+      window.alert(error.message);
+    });
   }
 
 }

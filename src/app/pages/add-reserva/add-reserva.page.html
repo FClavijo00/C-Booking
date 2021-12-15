@@ -8,13 +8,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form action="">
+    <form [formGroup]="reservaForm">
         <ion-img src="/assets/c-booking-text-dark.png" slot="center"></ion-img>
         <ion-list lines="none">
             <ion-item>
                 <ion-icon slot="start" name="walk-outline"></ion-icon>
                 <ion-label>Instalación</ion-label>
-                <ion-select>
+                <ion-select formControlName="instalacion">
                     <ion-select-option value="futbol7">Fútbol 7</ion-select-option>
                     <ion-select-option value="futsal">Futsal</ion-select-option>
                     <ion-select-option value="padel">Pádel</ion-select-option>
@@ -26,19 +26,19 @@
             <ion-item style="padding-top: 2px;">
                 <ion-icon slot="start" name="calendar-outline"></ion-icon>
                 <ion-label>Fecha</ion-label>
-                <ion-datetime displayFormat="DD/MMMM/YYYY"></ion-datetime>
+                <ion-datetime displayFormat="DD/MMMM/YYYY" formControlName="fecha"></ion-datetime>
             </ion-item>
 
             <ion-item style="padding-top: 2px;">
                 <ion-icon slot="start" name="time-outline"></ion-icon>
                 <ion-label>Hora</ion-label>
-                <ion-datetime displayFormat="H:mm"></ion-datetime>
+                <ion-datetime displayFormat="H:mm" formControlName="hora"></ion-datetime>
             </ion-item>
 
             <ion-item style="padding-top: 2px;">
                 <ion-icon slot="start" name="pin-outline"></ion-icon>
                 <ion-label>Localidad</ion-label>
-                <ion-select>
+                <ion-select formControlName="localidad">
                     <ion-select-option value="castellar">Castellar</ion-select-option>
                     <ion-select-option value="santisteban">Santisteban del Puerto</ion-select-option>
                     <ion-select-option value="navas">Navas de San Juan</ion-select-option>
@@ -67,7 +67,7 @@
     <ion-toolbar>
         <ion-row>
             <ion-col size="6">
-                <ion-button type="submit" expand="block" fill="clear" shape="round" color="dark">
+                <ion-button type="submit" expand="block" fill="clear" shape="round" color="dark" (click)="save()">
                     <ion-icon name="checkmark-outline"></ion-icon>
                 </ion-button>
             </ion-col>
