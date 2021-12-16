@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <form>
+    <form [formGroup]="userForm">
         <ion-card style="border-radius: 25px; box-shadow: 2px 2px 10px #666;">
             <ion-list lines="none">
 
@@ -18,23 +18,23 @@
 
                 <ion-item>
                     <ion-icon slot="start" name="person" color="dark"></ion-icon>
-                    <ion-input type="text" placeholder="Nombre Completo" color="dark"></ion-input>
+                    <ion-input type="text" placeholder="Nombre Completo" color="dark" formControlName="nombre"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="mail" color="dark"></ion-icon>
-                    <ion-input type="email" placeholder="Email" color="dark" #email required></ion-input>
+                    <ion-input type="email" placeholder="Email" color="dark" #email required formControlName="email"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="lock-closed" color="dark"></ion-icon>
-                    <ion-input type="password" placeholder="Contraseña" color="dark" #password required></ion-input>
+                    <ion-input type="password" placeholder="Contraseña" color="dark" #password required formControlName="password"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="call" color="dark"></ion-icon>
-                    <ion-input type="tel" placeholder="Teléfono" color="dark"></ion-input>
+                    <ion-input type="tel" placeholder="Teléfono" color="dark" formControlName="telefono"></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-icon slot="start" name="pin" color="dark"></ion-icon>
-                    <ion-input type="text" placeholder="Localidad" color="dark"></ion-input>
+                    <ion-input type="text" placeholder="Localidad" color="dark" formControlName="localidad"></ion-input>
                 </ion-item>
             </ion-list>
         </ion-card>
@@ -45,7 +45,7 @@
     <ion-toolbar color="dark">
         <ion-row>
             <ion-col size="6">
-                <ion-button (click)="signUp(email,password)" type="submit" expand="block" fill="clear" shape="round" color="light">
+                <ion-button (click)="signUp(email,password)" (click)="saveUser()" type="submit" expand="block" fill="clear" shape="round" color="light">
                     <ion-icon name="checkmark-outline"></ion-icon>
                     Registrar
                 </ion-button>

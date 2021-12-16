@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { User } from '../../models/user';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  id: string;
+  user: User;
 
-  ngOnInit() {
+  constructor(private firestoreService: FirestoreService) { }
+
+
+
+  ngOnInit(): void {
+    this.firestoreService.getUser(this.id);
   }
+
 
 }

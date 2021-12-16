@@ -1,3 +1,35 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet id="main"></ion-router-outlet>
+    <ion-menu menuId="main-menu" contentId="main">
+        <ion-header>
+            <ion-toolbar color="light">
+                <ion-title>Nav Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <div><img src="/assets/c-booking-text-dark.png"></div>
+            <ion-list class="menu-items" lines="none">
+                <ion-item style="margin-top: 20px;" routerLink="add-reserva" (click)="cerrarMenu()">
+                    <ion-icon name="add-outline"></ion-icon>
+                    <ion-label>Realizar Reserva</ion-label>
+                </ion-item>
+                <ion-item routerLink="tabs/reservas" (click)="cerrarMenu()">
+                    <ion-icon name="star-outline"></ion-icon>
+                    <ion-label>Ver Reservas</ion-label>
+                </ion-item>
+                <ion-item routerLink="tabs/contacto" (click)="cerrarMenu()">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <ion-label>Contacto</ion-label>
+                </ion-item>
+                <ion-item routerLink="tabs/perfil" (click)="cerrarMenu()">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <ion-label>Ver Perfil</ion-label>
+                </ion-item>
+                <ion-item (click)="cerrarSesion()">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <ion-label>Logout</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
 </ion-app>
