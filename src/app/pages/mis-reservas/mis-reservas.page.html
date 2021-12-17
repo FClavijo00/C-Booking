@@ -1,4 +1,55 @@
 <app-header></app-header>
-<ion-content>
+
+<ion-content class="ion-padding ion-text-center">
+
+    <ion-list lines="none">
+        <ion-item-sliding *ngFor="let reserva of reservas | async">
+            <ion-item color="dark">
+                <ion-grid fixed>
+
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-title class="ion-text-capitalize">{{reserva.instalacion}}</ion-title>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item>
+                                <ion-icon slot="start" name="calendar-outline"></ion-icon>
+                                <ion-label>{{reserva.fecha}}</ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item>
+                                <ion-icon slot="start" name="time-outline"></ion-icon>
+                                <ion-label>{{reserva.hora}}</ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-item>
+                                <ion-icon slot="start" name="pin-outline"></ion-icon>
+                                <ion-label class="ion-text-capitalize">{{reserva.localidad}}</ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+            </ion-item>
+
+
+            <ion-item-options side="end">
+                <ion-item-option color="danger" style="border-radius: 15px; margin-bottom: 10px;" (click)="delete(reserva)">
+                    <ion-icon slot="start" name="trash"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 
 </ion-content>

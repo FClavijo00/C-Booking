@@ -16,20 +16,11 @@ export class FirestoreService {
   private collectionUsers = 'users';
 
   constructor(private firestore: AngularFirestore) {}
-/*
+
   getReservas(): Observable<Reserva[]> {
-    return this.firestore.collection<Reserva>(this.collectionReservas).snapshotChanges().pipe(
-      map(reservas => {
-        return reservas.map(reserva => {
-          const data = reserva.payload.doc.data();
-          const key = reserva.payload.doc.id;
-          return {key, ...data};
-        });
-      })
-    );
+    return this.firestore.collection<Reserva>(this.collectionReservas).valueChanges();
 
   }
-  */
 
   getReserva(id: string) {
     return this.firestore.collection<Reserva>(this.collectionReservas).doc(id).get();
@@ -45,6 +36,10 @@ export class FirestoreService {
 
   updateReserva(reserva: Reserva, id: string) {
     return this.firestore.collection<Reserva>(this.collectionReservas).doc(id).update(reserva);
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.firestore.collection<User>(this.collectionUsers).valueChanges();
   }
 
   getUser(id: string) {

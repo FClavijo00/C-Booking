@@ -16,7 +16,7 @@ export class AddReservaPage implements OnInit {
   constructor(
     private firestoreService: FirestoreService,
     private router: Router,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
     ) { }
 
   reservaForm: FormGroup = new FormGroup( {

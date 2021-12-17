@@ -10,17 +10,13 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
   id: string;
-  user: User;
+  public users: Observable<User[]>;
 
   constructor(private firestoreService: FirestoreService) { }
 
-
-
   ngOnInit(): void {
-    this.firestoreService.getUser(this.id);
+    this.users = this.firestoreService.getUsers();
   }
-
 
 }

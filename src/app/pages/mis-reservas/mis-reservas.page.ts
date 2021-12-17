@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Reserva } from 'src/app/models/reserva';
+import { Observable } from 'rxjs';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { IonList } from '@ionic/angular';
 
 @Component({
   selector: 'app-mis-reservas',
@@ -7,9 +13,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisReservasPage implements OnInit {
 
-  constructor() { }
+  @ViewChild(IonList) ionList: IonList;
 
-  ngOnInit() {
+  @Input() reserva: Reserva;
+  public reservas: Observable<Reserva[]>;
+
+  constructor(private firestore: FirestoreService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.reservas = this.firestore.getReservas();
+  }
+
+  async delete(reserva: Reserva) {
+    if (this.reserva != null) {
+      this.firestore.deleteReserva(this.reserva).then(() => {
+        this.router.navigateByUrl('/tabs');
+      });
+    }
+    this.ionList.closeSlidingItems();
+    console.log('Borrado completado');
   }
 
 }
