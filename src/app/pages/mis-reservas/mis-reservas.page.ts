@@ -16,22 +16,28 @@ export class MisReservasPage implements OnInit {
   @ViewChild(IonList) ionList: IonList;
 
   @Input() reserva: Reserva;
+
   public reservas: Observable<Reserva[]>;
+  selectedReserva: Reserva;
 
   constructor(private firestore: FirestoreService, private router: Router) { }
 
   ngOnInit(): void {
     this.reservas = this.firestore.getReservas();
+    //.pipe(tap(reservas => this.selectedReserva = reservas[0]));
   }
 
-  async delete(reserva: Reserva) {
-    if (this.reserva != null) {
-      this.firestore.deleteReserva(this.reserva).then(() => {
-        this.router.navigateByUrl('/tabs');
-      });
-    }
+  select(reserva: Reserva) {
+    this.selectedReserva = reserva;
+    this.selectedReserva.id = reserva.id;
+    console.log(this.selectedReserva);
+  }
+
+  delete() {
+    this.firestore.deleteReserva(this.selectedReserva).then( _ => {
+      this.router.navigateByUrl('/tabs');
+    });
     this.ionList.closeSlidingItems();
-    console.log('Borrado completado');
   }
 
 }

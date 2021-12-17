@@ -3,7 +3,7 @@
 <ion-content class="ion-padding ion-text-center">
 
     <ion-list lines="none">
-        <ion-item-sliding *ngFor="let reserva of reservas | async">
+        <ion-item-sliding *ngFor="let reserva of reservas | async" (click)="select(reserva)">
             <ion-item color="dark">
                 <ion-grid fixed>
 
@@ -45,7 +45,7 @@
 
 
             <ion-item-options side="end">
-                <ion-item-option color="danger" style="border-radius: 15px; margin-bottom: 10px;" (click)="delete(reserva)">
+                <ion-item-option (click)="delete()" color="danger" style="border-radius: 15px; margin-bottom: 10px;">
                     <ion-icon slot="start" name="trash"></ion-icon>
                 </ion-item-option>
             </ion-item-options>
